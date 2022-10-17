@@ -6,50 +6,42 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list ptr;
-	int idx, idx2;
-	int count = 0;
+	int i = 0, j = 0, a = 0;
+	va_list ap;
 
-	pick_t option[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'d', print_numbers},
-		{'i', print_numbers},
-		// {'u', print_unsigned},
-		{'\0', NULL}};
-
-	va_start(ptr, format);
-
-	if (ptr == NULL || format == NULL)
-		return (-1);
-
-	for (idx = 0; format[idx] != '\0'; idx++)
+	if (format == NULL || (strlen(format) == 1 && format[0] == '%'))
 	{
-		if (format[idx] != '%')
-		{
-			_putchar(format[idx]);
-			count++;
-		}
-		else
-		{
-			if (!(format[idx + 1]))
-				return (-1);
-			if (format[idx + 1] == '%')
-			{
-				_putchar('%');
-				idx++;
-				count++;
-			}
-			for (idx2 = 0; idx2 < 4; idx2++)
-			{
-				if (format[idx + 1] == option[idx2].data)
-				{
-					count += option[idx2].f(ptr);
-					idx++;
-				}
-			}
-		}
+		return (-1);
 	}
-	va_end(ptr);
-	return (count);
+	va_start(ap, format);
+	while (format && format[i])
+	{
+		if (format[i] != '%')
+		{
+			putchar(format[i]);
+			j++;
+		}
+		if (format[i] == '%' && format[i + 1] != 'K' && format[i + 1] != '!')
+		{
+			a = get_printf(*(format + (i + 1)), ap);
+			if (a != 0)
+				j = j + a;
+			i = i + 2;
+			continue;
+			if (*(format + (i + 1)) == '\0')
+			{
+				putchar(format[i]);
+				j++;
+			}
+		}
+		else if ((format[i] == '%' && format[i + 1] == 'K') ||
+		 (format[i] == '%' && format[i + 1] == '!'))
+		{
+			putchar(format[i]);
+			j++;
+		}
+		i++;
+	}
+	va_end(ap);
+	return (j);
 }
