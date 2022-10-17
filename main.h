@@ -33,5 +33,5 @@ int print_string(va_list ptr); /*to print string*/
 int print_char(va_list ptr); /* to print a single character*/
 int print_numbers(va_list arp);
 int print_int(int i);
-
+int print_unsigned(va_list ap, params_t *params);
 #endif
