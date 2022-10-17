@@ -1,102 +1,78 @@
 #include "main.h"
 /**
- *print_char - function that prints single character
- *@ptr: input data from user
- *Return: character to be print
+ * pchar - return char
+ * @arg: arg
+ * Return: 1 on success
  */
-int print_char(va_list ptr)
+int pchar(va_list arg)
 {
-	char c;
-
-	c = va_arg(ptr, int);
-
-	if (c == '\0')
-	{
-		return ('\0');
-	}
-
-	_putchar(c);
+	putchar(va_arg(arg, int));
 	return (1);
 }
+
 /**
- *print_string - prints a sequence of character.
- *@ptr: input data from users.
- *Return: the sequence of character to be print.
+ * pstr - return an str
+ * @arg: var to write
+ * Return: string
  */
-
-int print_string(va_list ptr)
+int pstr(va_list arg)
 {
-	char *str;
-	int i;
+	int i = 0;
+	char *s = va_arg(arg, char *);
 
-	str = va_arg(ptr, char *);
-
-	if (*str == '\0')
+	if (s == NULL)
+		s = "(null)";
+	while (s[i] != '\0')
 	{
-		_putchar('\0');
+		putchar(s[i]);
+		i++;
 	}
-
-	for (i = 0 ; str[i] != '\0'; i++)
-	{
-		_putchar(str[i]);
-	}
-
 	return (i);
 }
 
 /**
- * print_numbers - Prints the integer
- * @arp: Argument Pointer
- *
- * Return: Count of all numbers printed
+ * pperc - return per
+ * @arg: arg
+ * Return: per
  */
-
-int print_numbers(va_list arp)
-{
-	int num = 0, count = 0;
-
-	num = va_arg(arp, int);
-	count += print_int(num);
-
-	return (count);
-}
-
-/**
- * print_int - Prints the integer
- * @i: Number to be printed
- *
- * Return: Count of all numbers printed
- */
-
-int print_int(int i)
-{
-	int count = 1;
-	unsigned int num = 0;
-
-	if (i < 0)
-	{
-		_putchar('-');
-		count++;
-		num = i * -1;
-	}
-	else
-	{
-		num = i;
-	}
-	if (num / 10)
-	{
-		count += print_int(num / 10);
-	}
-	_putchar((num % 10) + 48);
-
-	return (count);
-}
-
 int pperc(va_list arg)
 {
 	(void)arg;
 	putchar('%');
 	return (1);
+}
+
+/**
+ * pint - retun an int
+ * @arg: arg
+ * Return: len
+ */
+int pint(va_list arg)
+{
+	int n = va_arg(arg, int);
+	int d, len;
+	unsigned int num;
+
+	d = 1;
+	len = 0;
+	num = n;
+	if (n < 0)
+	{
+		putchar('-');
+		len++;
+		num = -n;
+	}
+
+	while (num / d > 9)
+		d *= 10;
+	while (d != 0)
+	{
+		putchar('0' + num / d);
+		len++;
+		num %= d;
+		d /= 10;
+	}
+	return (len);
 }
 
 /**
