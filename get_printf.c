@@ -27,9 +27,9 @@ int get_printf(const char c, va_list ap)
 
 
 	
-	while (type[i].t != 0)
+	while (type[i].data != 0)
 	{
-		if (type[i].t == c)
+		if (type[i].data == c)
 		{
 			j += type[i].f(ap);
 			return (j);
