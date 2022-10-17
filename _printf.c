@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 		{'s', print_string},
 		{'d', print_numbers},
 		{'i', print_numbers},
-		{'u', print_unsigned},
+		// {'u', print_unsigned},
 		{'\0', NULL}};
 
 	va_start(ptr, format);
