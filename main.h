@@ -35,4 +35,3 @@ int print_numbers(va_list arp);
 int print_int(int i);
 
 #endif
-Footer
