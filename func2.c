@@ -80,8 +80,8 @@ int i = 0;
 }
 
 /**
- * proot - prints in root 
- * @arg: unsigned list args 
+ * proot - prints in root
+ * @arg: unsigned list args
  * Return: count
  */
 int proot(va_list arg)
