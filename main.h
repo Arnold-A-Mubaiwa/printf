@@ -11,7 +11,7 @@
 /*STRUCTURE*/
 
 /**
-*struct - a type to print.
+*struct print - a type to print.
 *@data: data type.
 *@f: function type.
 */
