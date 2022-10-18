@@ -319,9 +319,9 @@ int i = 0;
 }
 
 /**
- * proot - prints in hexadecimal form in lowercase.
+ * proot - prints in root form in lowercase.
  * @arg: list arg
- * Return: j
+ * Return: count
  */
 int proot(va_list arg)
 {
