@@ -21,7 +21,7 @@ int get_printf(const char c, va_list ap)
 		{'x', phex},
 		{'X', pHEX},
 		{'p', ppntr},
-    };
+};
 
 	while (type[i].data != 0)
 	{
