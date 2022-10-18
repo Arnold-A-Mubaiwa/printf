@@ -79,6 +79,11 @@ int i = 0;
 	return (strlen(s));
 }
 
+/**
+ * proot - prints in root 
+ * @arg: unsigned list args 
+ * Return: count
+ */
 int proot(va_list arg)
 {
 	char *s = va_arg(arg, char *);
