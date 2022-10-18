@@ -111,7 +111,6 @@ int pbin(va_list arg)
 
 /**
  * puns - Unsigned decimal integer
- *
  * @arg: arg
  * Return: length
  */
