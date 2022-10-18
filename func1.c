@@ -318,6 +318,11 @@ int i = 0;
 	return (strlen(s));
 }
 
+/**
+ * proot - prints in hexadecimal form in lowercase.
+ * @arg: list arg
+ * Return: j
+ */
 int proot(va_list arg)
 {
 	char *s = va_arg(arg, char *);
