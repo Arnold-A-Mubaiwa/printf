@@ -17,10 +17,11 @@
 */
 typedef struct print
 {
-    char data;
-    int (*f)(va_list ptr);
+char data;
+int (*f)(va_list ptr);
 
 }print_t;
+
 int _printf(const char *format, ...);
 int get_printf(const char c, va_list ap);
 
@@ -40,4 +41,5 @@ int proot(va_list arg);
 
 int intlen(int a);
 int hexa(unsigned int n);
+
 #endif
