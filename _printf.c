@@ -6,14 +6,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, a = 0; //declaration
-	va_list ap; //initiating a varidic variable
+	int i = 0, j = 0, a = 0;
+	va_list ap;
 
 	if (format == NULL || (strlen(format) == 1 && format[0] == '%'))
 	{
-		return (-1); // checking if format is not null
+		return (-1);
 	}
-	va_start(ap, format); //starting the variadic function argument.. telling it where to start
+	va_start(ap, format);
 	while (format && format[i])
 	{
 		if (format[i] != '%')
